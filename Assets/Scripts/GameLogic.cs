@@ -39,8 +39,10 @@ public class GameLogic : MonoBehaviour {
     
     [Header("Scripts")]
     public GameStateManager m_gameStateManager;
+    public InputEvent inputEvent;
 
     void Start() {
         if (m_gameStateManager == null) Debug.Log("Game State Manager isn't started");
+        if (inputEvent) Debug.Log("Input Event isn't started");
     }
 }
