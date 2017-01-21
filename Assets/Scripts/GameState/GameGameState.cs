@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameGameState : GameState {
 
-	public GameGamestate():base(EGameState.GAME){
+	public GameGameState():base(EGameState.GAME){
 
 	}
 	public override void UpdateState() {
