@@ -43,4 +43,5 @@ public class GameLogic : MonoBehaviour {
     void Start() {
         if (m_gameStateManager == null) Debug.Log("Game State Manager isn't started");
     }
+
 }
