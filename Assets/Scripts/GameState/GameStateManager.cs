@@ -5,6 +5,11 @@ public class GameStateManager : MonoBehaviour{
     private GameState m_currentGameState;
     private GameState m_lastGameState;
 
+	public GameObject menu;
+	public GameObject options;
+	public GameObject gameover;
+	public GameObject game;
+
     /// <summary>
     /// Retorna Enumerator do GameState Atual
     /// </summary>
@@ -66,6 +71,10 @@ public class GameStateManager : MonoBehaviour{
     void Awake() {
         DontDestroyOnLoad(this);
     }
+
+	void muda(){
+		//SwitchGameState(new GameOverGamestate);
+	}
     
 }
 
