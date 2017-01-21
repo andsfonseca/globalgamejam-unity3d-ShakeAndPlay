@@ -2,5 +2,5 @@
 using System.Collections;
 
 public enum EGameState {
-    MENU
+    MENU,OPTIONS,GAME,GAMEOVER
 }
