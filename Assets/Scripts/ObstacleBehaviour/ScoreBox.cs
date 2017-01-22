@@ -12,6 +12,9 @@ public class ScoreBox : MonoBehaviour {
 		counted = false;
         m_playerPosition = GameLogic.Instance.player.transform;
 	}
+    void OnEnable() {
+        counted = false;
+    }
 	
 	// Update is called once per frame
 	void Update () {

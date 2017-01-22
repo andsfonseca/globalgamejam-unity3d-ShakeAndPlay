@@ -242,7 +242,8 @@ namespace Google.Cast.RemoteDisplay.UI {
       isCasting = true;
       HideAll();
       castButtonFrame.ShowCasting();
-    }
+            transform.GetChild(0).SendMessage("play");
+        }
 
     /**
      * Cleans up display when the session is over.

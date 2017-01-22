@@ -38,16 +38,6 @@ namespace Google.Cast.RemoteDisplay.UI {
          * The icon displayed by the button.
          */
         public RawImage icon;
-
-        Button myButton;
-
-        void Awake() {
-            myButton = GetComponent<Button>();
-            myButton.onClick.AddListener(() => { Play(); });
-        }
-
-        void Play() {
-            transform.GetChild(0).SendMessage("play");
-        }
+        
     }
 }

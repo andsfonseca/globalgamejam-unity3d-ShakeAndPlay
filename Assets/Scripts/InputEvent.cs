@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 public class InputEvent : MonoBehaviour {
@@ -72,6 +74,7 @@ public class InputEvent : MonoBehaviour {
     }
 }
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(InputEvent))]
 public class InputEventEditor : Editor {
 
@@ -97,3 +100,4 @@ public class InputEventEditor : Editor {
         }
     }
 }
+#endif
