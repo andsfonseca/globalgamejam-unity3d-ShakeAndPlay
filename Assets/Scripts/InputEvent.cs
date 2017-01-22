@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class InputEvent : MonoBehaviour {
 
-    [HideInInspector]
     public bool isShaking;
 
     [HideInInspector]

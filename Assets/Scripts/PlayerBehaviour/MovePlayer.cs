@@ -54,4 +54,10 @@ public class MovePlayer : MonoBehaviour {
 		}
         (GameLogic.Instance.gameStateManager.currentGS as GameGameState).UpdateScore(score);
 	}
+    public void Jump() {
+        if (isGrounded) {
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
+            Debug.Log("pulou");
+        }
+    }
 }

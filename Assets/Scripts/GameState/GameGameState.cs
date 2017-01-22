@@ -14,13 +14,13 @@ public class GameGameState : GameState {
 
 	public override void OnStartGameState() {
 		base.OnStartGameState();
-
+        GameLogic.Instance.gameStateManager.game.SetActive(true);
 	}
 
 	public override void OnChangeGameState() {
 		base.OnChangeGameState();
-
-	}
+        GameLogic.Instance.gameStateManager.game.SetActive(false);
+    }
 
     public void UpdateScore(int points) {
         m_points.text = (" " + points);
