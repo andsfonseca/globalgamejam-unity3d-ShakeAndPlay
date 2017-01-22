@@ -40,10 +40,12 @@ public class GameLogic : MonoBehaviour {
 
     public GameStateManager gameStateManager;
     public InputEvent inputEvent;
+    public MovePlayer player;
 
     void Start() {
         if (gameStateManager == null) Debug.Log("Game State Manager isn't started");
-        if (inputEvent) Debug.Log("Input Event isn't started");
+        if (inputEvent == null) Debug.Log("Input Event isn't started");
+        gameStateManager.SwitchGameState(new MenuGamestate());
     }
 
 }

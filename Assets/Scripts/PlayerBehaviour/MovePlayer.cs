@@ -9,7 +9,6 @@ public class MovePlayer : MonoBehaviour {
 	public bool isGrounded;
 	private Vector3 wavePosition;
 	private int score = 0;
-	public Text scoreText;
 	// Use this for initialization
 	void Start () {
 		isGrounded = false;
@@ -17,11 +16,13 @@ public class MovePlayer : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {		
-		move ();
-		checkGround ();
-		checkWave ();
-		checkScore ();
+	void Update () {
+        if (GameLogic.Instance.gameStateManager.current.Equals(EGameState.GAME)) {
+            move();
+            checkGround();
+            checkWave();
+            checkScore();
+        }
 	}
 	private void move(){
 		transform.Translate (speed*Time.deltaTime, 0, 0);
@@ -51,6 +52,6 @@ public class MovePlayer : MonoBehaviour {
 				score++;
 			}
 		}
-		scoreText.text = (""+score);
+        (GameLogic.Instance.gameStateManager.currentGS as GameGameState).UpdateScore(score);
 	}
 }

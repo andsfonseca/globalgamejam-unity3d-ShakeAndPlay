@@ -14,14 +14,16 @@ public class GroundScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (playerTransform.position.x > 2 + indexGround * 20) {
-			sandPrefab.Spawn (new Vector3(12+indexGround*20,-4, 0));
-			indexGround++;
-		}
-		foreach (GameObject sand in GameObject.FindGameObjectsWithTag("ground")) {
-			if ((playerTransform.position - sand.transform.position).x > 40) {
-				sand.Recycle ();
-			}
-		}
+        if (GameLogic.Instance.gameStateManager.current.Equals(EGameState.GAME)) {
+            if (playerTransform.position.x > 2 + indexGround * 20) {
+                sandPrefab.Spawn(new Vector3(12 + indexGround * 20, -4, 0));
+                indexGround++;
+            }
+            foreach (GameObject sand in GameObject.FindGameObjectsWithTag("ground")) {
+                if ((playerTransform.position - sand.transform.position).x > 40) {
+                    sand.Recycle();
+                }
+            }
+        }
 	}
 }

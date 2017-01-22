@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class GameGameState : GameState {
 
-	public GameGameState():base(EGameState.GAME){
-
+    private UnityEngine.UI.Text m_points;
+	public GameGameState(UnityEngine.UI.Text points) :base(EGameState.GAME){
+        m_points = points;
 	}
 	public override void UpdateState() {
 
@@ -20,4 +21,8 @@ public class GameGameState : GameState {
 		base.OnChangeGameState();
 
 	}
+
+    public void UpdateScore(int points) {
+        m_points.text = (" " + points);
+    }
 }

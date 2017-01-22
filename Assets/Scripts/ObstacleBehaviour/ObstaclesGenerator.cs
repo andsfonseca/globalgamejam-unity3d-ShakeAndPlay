@@ -17,15 +17,17 @@ public class ObstaclesGenerator : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		transform.position = new Vector3((playerTransform.position+offset).x, transform.position.y, transform.position.z);
-		if (Time.time - lastSpawn > timeRate) {
-			boxPrefab.Spawn (transform.position);
-			lastSpawn = Time.time;
-		}
-		foreach (GameObject box in GameObject.FindGameObjectsWithTag("box")) {
-			if ((transform.position - box.transform.position).x > 40) {
-				box.Recycle ();
-			}
-		}
+        if (GameLogic.Instance.gameStateManager.current.Equals(EGameState.GAME)) {
+            transform.position = new Vector3((playerTransform.position + offset).x, transform.position.y, transform.position.z);
+            if (Time.time - lastSpawn > timeRate) {
+                boxPrefab.Spawn(transform.position);
+                lastSpawn = Time.time;
+            }
+            foreach (GameObject box in GameObject.FindGameObjectsWithTag("box")) {
+                if ((transform.position - box.transform.position).x > 40) {
+                    box.Recycle();
+                }
+            }
+        }
 	}
 }

@@ -11,6 +11,7 @@ public class MoveWave : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Translate (speed*Time.deltaTime, 0, 0);
+        if (GameLogic.Instance.gameStateManager.current.Equals(EGameState.GAME))
+            transform.Translate (speed*Time.deltaTime, 0, 0);
 	}
 }

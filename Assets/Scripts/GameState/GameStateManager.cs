@@ -10,6 +10,8 @@ public class GameStateManager : MonoBehaviour{
 	public GameObject gameover;
 	public GameObject game;
 
+    public UnityEngine.UI.Text pointsElement;
+
     /// <summary>
     /// Retorna Enumerator do GameState Atual
     /// </summary>
@@ -72,8 +74,8 @@ public class GameStateManager : MonoBehaviour{
         DontDestroyOnLoad(this);
     }
 
-	void muda(){
-		//SwitchGameState(new GameOverGamestate);
+	void Play(){
+		SwitchGameState(new GameGameState(pointsElement));
 	}
     
 }
