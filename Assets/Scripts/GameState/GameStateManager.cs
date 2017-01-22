@@ -74,7 +74,7 @@ public class GameStateManager : MonoBehaviour{
         DontDestroyOnLoad(this);
     }
 
-	void Play(){
+	public void Play(){
 		SwitchGameState(new GameGameState(pointsElement));
 	}
     

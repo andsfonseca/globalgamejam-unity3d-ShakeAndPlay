@@ -13,9 +13,9 @@ public class MenuGamestate : GameState {
 
 	public override void OnStartGameState() {
 		base.OnStartGameState();
-		//GameLogic.Instance.gameStateManager.game
+		GameLogic.Instance.gameStateManager.menu.SetActive(true);
 
-	}
+    }
 
 	public override void OnChangeGameState() {
 		base.OnChangeGameState();

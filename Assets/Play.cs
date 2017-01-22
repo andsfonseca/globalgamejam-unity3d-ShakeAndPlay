@@ -5,6 +5,6 @@ using UnityEngine;
 public class Play : MonoBehaviour {
 
     public void play() {
-       // GameLogic.Instance.gameStateManager.Play();
+       GameLogic.Instance.gameStateManager.Play();
     }
 }
