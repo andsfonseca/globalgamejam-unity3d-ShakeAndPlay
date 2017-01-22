@@ -17,6 +17,7 @@ public class ColliderCara : MonoBehaviour {
 		if (coll.gameObject.CompareTag ("box")) {
 			Debug.Log ("bateu");
 			GetComponentInParent<MovePlayer> ().bateu = true;
+			(GameLogic.Instance.gameStateManager.currentGS as GameGameState).ExecuteMiss();
 		}
 	}
 	void OnCollisionExit2D(Collision2D coll){	

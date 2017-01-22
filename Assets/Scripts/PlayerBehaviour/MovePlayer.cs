@@ -63,9 +63,6 @@ public class MovePlayer : MonoBehaviour {
 		if (rightTime && isGrounded) {
 			GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0, jumpForce));
 			Debug.Log ("pulou");
-		} else {
-			score--;
-			(GameLogic.Instance.gameStateManager.currentGS as GameGameState).ExecuteMiss();
-		}
+		} 
     }
 }
