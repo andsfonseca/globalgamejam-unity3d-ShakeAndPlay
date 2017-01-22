@@ -41,6 +41,7 @@ public class MovePlayer : MonoBehaviour {
 		wavePosition = GameObject.FindGameObjectWithTag ("wave").transform.position;
 		if (Mathf.Abs(transform.position.x - wavePosition.x) < 2.2f) {
 			Debug.Log ("morreu");
+			GameLogic.Instance.gameStateManager.SwitchGameState (new GameOverGamestate ());
 		}
 	}
 	private void checkGround(){
