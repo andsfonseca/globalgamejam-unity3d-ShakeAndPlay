@@ -11,6 +11,7 @@ public class GameStateManager : MonoBehaviour{
 	public GameObject game;
 
     public UnityEngine.UI.Text pointsElement;
+	public Animation missElement;
 
     /// <summary>
     /// Retorna Enumerator do GameState Atual
@@ -75,7 +76,7 @@ public class GameStateManager : MonoBehaviour{
     }
 
 	public void Play(){
-		SwitchGameState(new GameGameState(pointsElement));
+		SwitchGameState(new GameGameState(pointsElement, missElement));
 	}
     
 }

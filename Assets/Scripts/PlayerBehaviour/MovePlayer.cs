@@ -33,6 +33,7 @@ public class MovePlayer : MonoBehaviour {
 		if(isGrounded && Input.GetButtonDown("Jump")){
 			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
 			Debug.Log ("pulou");
+			(GameLogic.Instance.gameStateManager.currentGS as GameGameState).ExecuteMiss();
 		}
 	}
 	private void checkWave(){
@@ -63,7 +64,8 @@ public class MovePlayer : MonoBehaviour {
 			GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0, jumpForce));
 			Debug.Log ("pulou");
 		} else {
-			Debug.Log ("Miss");
+			score--;
+			(GameLogic.Instance.gameStateManager.currentGS as GameGameState).ExecuteMiss();
 		}
     }
 }

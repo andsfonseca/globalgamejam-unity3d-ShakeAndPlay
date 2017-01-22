@@ -5,8 +5,11 @@ using UnityEngine;
 public class GameGameState : GameState {
 
     private UnityEngine.UI.Text m_points;
-	public GameGameState(UnityEngine.UI.Text points) :base(EGameState.GAME){
+	private Animation m_miss;
+
+	public GameGameState(UnityEngine.UI.Text points, Animation miss) :base(EGameState.GAME){
         m_points = points;
+		m_miss = miss;
 	}
 	public override void UpdateState() {
 
@@ -25,4 +28,10 @@ public class GameGameState : GameState {
     public void UpdateScore(int points) {
         m_points.text = (" " + points);
     }
+
+	public void ExecuteMiss(){
+		if (!m_miss.isPlaying) {
+			m_miss.Play ();
+		}
+	}
 }
