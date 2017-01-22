@@ -17,7 +17,7 @@ public class MovePlayer : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         if (GameLogic.Instance.gameStateManager.current.Equals(EGameState.GAME)) {
 			move();
             checkGround();
@@ -27,7 +27,7 @@ public class MovePlayer : MonoBehaviour {
 	}
 	private void move(){
 		if (!bateu) {
-			transform.Translate (speed*Time.deltaTime, 0, 0);
+			transform.Translate (speed*Time.fixedDeltaTime, 0, 0);
 		}
 
 		if(isGrounded && Input.GetButtonDown("Jump")){
@@ -58,10 +58,12 @@ public class MovePlayer : MonoBehaviour {
 		}
         (GameLogic.Instance.gameStateManager.currentGS as GameGameState).UpdateScore(score);
 	}
-    public void Jump() {
-        if (isGrounded) {
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
-            Debug.Log("pulou");
-        }
+	public void Jump(bool rightTime) {
+		if (rightTime && isGrounded) {
+			GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0, jumpForce));
+			Debug.Log ("pulou");
+		} else {
+			Debug.Log ("Miss");
+		}
     }
 }

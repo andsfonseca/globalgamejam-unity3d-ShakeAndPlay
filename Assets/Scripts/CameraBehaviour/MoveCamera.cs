@@ -11,7 +11,9 @@ public class MoveCamera : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		transform.position = new Vector3((playerTransform.position+offset).x, transform.position.y, transform.position.z);
+	void FixedUpdate () {
+		//if (playerTransform.position.x > transform.position.x) {
+			transform.position = new Vector3 ((playerTransform.position + offset).x, transform.position.y, transform.position.z);
+		//}
 	}
 }

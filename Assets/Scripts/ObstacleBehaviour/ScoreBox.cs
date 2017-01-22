@@ -18,11 +18,9 @@ public class ScoreBox : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        float diff = Mathf.Abs(m_playerPosition.position.x -transform.position.x);
-        if (diff>=infLimit && diff<=supLimit) {
-            if (GameLogic.Instance.inputEvent.isShaking) {
-                GameLogic.Instance.player.Jump();
-            }
+        float diff = Mathf.Abs(m_playerPosition.position.x -transform.position.x);       
+        if (GameLogic.Instance.inputEvent.isShaking) {
+			GameLogic.Instance.player.Jump(diff>=infLimit && diff<=supLimit);
         }
 	}
 }
