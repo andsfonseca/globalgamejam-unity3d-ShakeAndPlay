@@ -9,23 +9,27 @@ public class MovePlayer : MonoBehaviour {
 	public bool isGrounded;
 	private Vector3 wavePosition;
 	private int score = 0;
+	public bool bateu;
 	// Use this for initialization
 	void Start () {
 		isGrounded = false;
-
+		bateu = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (GameLogic.Instance.gameStateManager.current.Equals(EGameState.GAME)) {
-            move();
+			move();
             checkGround();
             checkWave();
             checkScore();
         }
 	}
 	private void move(){
-		transform.Translate (speed*Time.deltaTime, 0, 0);
+		if (!bateu) {
+			transform.Translate (speed*Time.deltaTime, 0, 0);
+		}
+
 		if(isGrounded && Input.GetButtonDown("Jump")){
 			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
 			Debug.Log ("pulou");
