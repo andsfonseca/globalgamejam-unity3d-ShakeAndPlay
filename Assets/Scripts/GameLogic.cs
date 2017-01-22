@@ -40,7 +40,14 @@ public class GameLogic : MonoBehaviour {
 
     public GameStateManager gameStateManager;
     public InputEvent inputEvent;
-    public MovePlayer player;
+	public MovePlayer player{
+		get{
+			return GameObject.FindGameObjectWithTag ("Player").GetComponent<MovePlayer> ();
+		}
+	}
+
+	public GameObject CanvasUI;
+	public GameObject OnStreamUI;
 
     void Start() {
         if (gameStateManager == null) Debug.Log("Game State Manager isn't started");

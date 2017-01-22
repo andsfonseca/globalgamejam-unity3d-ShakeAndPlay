@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class GameStateManager : MonoBehaviour{
 
     private GameState m_currentGameState;
@@ -8,6 +8,7 @@ public class GameStateManager : MonoBehaviour{
 	public GameObject menu;
 	public GameObject options;
 	public GameObject gameover;
+	public GameObject gameOverScreen;
 	public GameObject game;
 
     public UnityEngine.UI.Text pointsElement;
@@ -78,6 +79,17 @@ public class GameStateManager : MonoBehaviour{
 	public void Play(){
 		SwitchGameState(new GameGameState(pointsElement, missElement));
 	}
+
+	public void ExitPlay(){
+		Application.Quit ();
+	}
+
+	public void Retart(){
+		SceneManager.LoadScene("Main", LoadSceneMode.Single);
+		SwitchGameState(new GameGameState(pointsElement, missElement));
+
+	}
+
     
 }
 

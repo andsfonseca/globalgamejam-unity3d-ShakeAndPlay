@@ -20,9 +20,9 @@ public class MovePlayer : MonoBehaviour {
 	void FixedUpdate () {
         if (GameLogic.Instance.gameStateManager.current.Equals(EGameState.GAME)) {
 			move();
-            checkGround();
-            checkWave();
+            checkGround();            
             checkScore();
+			checkWave();
         }
 	}
 	private void move(){
@@ -54,14 +54,16 @@ public class MovePlayer : MonoBehaviour {
 		GetComponent<Animator> ().SetBool ("Ground", isGrounded);
 	}
 	private void checkScore(){
-		foreach (GameObject box in GameObject.FindGameObjectsWithTag("box")) {
-			ScoreBox scoreBox = box.GetComponent<ScoreBox> ();
-			if (box.transform.position.x < transform.position.x && !scoreBox.counted) {
-				scoreBox.counted = true;
-				score++;
+		if (GameLogic.Instance.gameStateManager.current.Equals (EGameState.GAME)) {
+			foreach (GameObject box in GameObject.FindGameObjectsWithTag("box")) {
+				ScoreBox scoreBox = box.GetComponent<ScoreBox> ();
+				if (box.transform.position.x < transform.position.x && !scoreBox.counted) {
+					scoreBox.counted = true;
+					score++;
+				}
 			}
+			(GameLogic.Instance.gameStateManager.currentGS as GameGameState).UpdateScore (score);
 		}
-        (GameLogic.Instance.gameStateManager.currentGS as GameGameState).UpdateScore(score);
 	}
 	public void Jump(bool rightTime) {
 		if (rightTime && isGrounded) {
