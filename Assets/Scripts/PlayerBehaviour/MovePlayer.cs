@@ -34,6 +34,7 @@ public class MovePlayer : MonoBehaviour {
 			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
 			Debug.Log ("pulou");
 			(GameLogic.Instance.gameStateManager.currentGS as GameGameState).ExecuteMiss();
+			GetComponent<Animator> ().SetTrigger ("Jump");
 		}
 	}
 	private void checkWave(){
@@ -43,11 +44,13 @@ public class MovePlayer : MonoBehaviour {
 		}
 	}
 	private void checkGround(){
-		if (transform.position.y < -1.4f) {
+		if (transform.position.y < -1.1f) {
 			isGrounded = true;
+
 		} else {
 			isGrounded = false;
 		}
+		GetComponent<Animator> ().SetBool ("Ground", isGrounded);
 	}
 	private void checkScore(){
 		foreach (GameObject box in GameObject.FindGameObjectsWithTag("box")) {
@@ -63,6 +66,9 @@ public class MovePlayer : MonoBehaviour {
 		if (rightTime && isGrounded) {
 			GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0, jumpForce));
 			Debug.Log ("pulou");
+			GetComponent<Animator> ().SetTrigger ("Jump");
+
 		} 
     }
+		
 }
